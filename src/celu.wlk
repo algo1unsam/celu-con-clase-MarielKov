@@ -1,13 +1,12 @@
 class Celular {
 
-	var property ramOcupada
-	var property gastoBateria
+
 	var property ramTotal = 1000
 	var property bateria = 100
 
-	method abrirApp() {
-		ramTotal = ramTotal - ramOcupada
-		bateria = bateria - gastoBateria
+	method abrirApp(app) {
+		ramTotal = ramTotal - app.ramOcupada()
+		bateria = bateria - app.gastoBateria()
 	}
 
 }
@@ -32,8 +31,8 @@ class Spotify {
 
 class Wsp {
 
-	var property ramOcupada
-	var property gastoBateria
+	var property ramOcupada = 40
+	var property gastoBateria = 1
 	var property chats = 2
 
 	method nuevoChat() {
@@ -43,3 +42,9 @@ class Wsp {
 
 }
 
+class Calculadora{
+	
+	var property ramOcupada = 10
+	var property gastoBateria = 0
+	
+}
