@@ -1,0 +1,96 @@
+import celu.*
+
+test "El s3Mini con Whatsapp (dos conversaciones) y el reproductor (30 canciones), tiene 900 MB de RAM libres." {
+	var wsp = new Mensajeria(ramBase = 40, gastoBateria = 1, chats = 2)
+	var reproductor = new Musica()
+	var s3mini = new Celular()
+	
+	s3mini.abrirWsp()
+	s3mini.abrirReproductor()
+	
+	assert.equals(900,s3mini.ramTotal())
+
+}
+
+test "El s3Mini si tiene sólo la calculadora abierta tiene 990 Mb de RAM libre"{
+	var calculadora = new Calculadora()
+	var s3mini = new Celular()
+	
+	s3mini.abrirCalculadora()
+	
+	assert.equals(990,s3mini.ramTotal())
+	
+}
+
+test "El s3Mini con Whatsapp (dos conversaciones) y el reproductor (30 canciones), al usarse un minuto queda con 96% de batería."{
+	
+	var wsp = new Mensajeria(ramBase = 40, gastoBateria = 1)
+	var reproductor = new Musica()
+	var s3mini = new Celular()
+	
+	s3mini.abrirWsp()
+	s3mini.abrirReproductor()
+	
+	assert.equals(96,s3mini.bateria())
+	
+}
+
+test "El s3Mini con sólo la calculadora abierta al usarse tres minutos queda con 100% de batería."{
+	
+	var calculadora = new Calculadora()
+	var s3mini = new Celular()
+	
+	s3mini.abrirCalculadora()
+	
+	assert.equals(100,s3mini.bateria())
+}
+
+test "el s3Mini con Telegram (5 conversaciones) y YouTube, tiene 890 MB libres."{
+	
+	var telegram = new Mensajeria(ramBase = 30, gastoBateria = 1, chats = 5)
+	var youtube = new Videos()
+	var s3mini = new Celular()
+	
+
+	s3mini.abrirYoutube()
+	s3mini.abrirTelegram()
+	
+	assert.equals(890,s3mini.ramTotal())
+}
+
+test "Bateria al 0" {
+	var wsp = new Mensajeria(ramBase = 40, gastoBateria = 1)
+	var telegram = new Mensajeria(ramBase = 30, gastoBateria = 1)
+	var reproductor = new Musica()
+	var calculadora = new Calculadora()
+	var youtube = new Videos()
+	var s3mini = new Celular()
+	
+	s3mini.abrirTelegram()
+	s3mini.abrirReproductor()
+	s3mini.abrirYoutube()
+	s3mini.abrirWsp()
+	s3mini.abrirCalculadora()
+	s3mini.abrirTelegram()
+	s3mini.abrirReproductor()
+	s3mini.abrirYoutube()
+	s3mini.abrirWsp()
+	s3mini.abrirCalculadora()
+	s3mini.abrirTelegram()
+	s3mini.abrirReproductor()
+	s3mini.abrirYoutube()
+	s3mini.abrirWsp()
+	s3mini.abrirCalculadora()
+	s3mini.abrirTelegram()
+	s3mini.abrirReproductor()
+	s3mini.abrirYoutube()
+	s3mini.abrirWsp()
+	s3mini.abrirCalculadora()
+	
+	assert.that(s3mini.apagar())
+	
+	
+	
+	
+	
+}
