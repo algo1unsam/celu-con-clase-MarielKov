@@ -44,6 +44,7 @@ class Musica {
 	method bateriaUsada(minutos) = gastoBateria * minutos
 
 
+}
 
 class Mensajeria {
 
@@ -58,7 +59,9 @@ class Mensajeria {
 
 	method bateriaUsada(minutos) = minutos * gastoBateria * chats
 
+
 }
+
 
 
 class Calculadora {
